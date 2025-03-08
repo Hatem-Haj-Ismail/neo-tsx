@@ -1,0 +1,107 @@
+.FloatingContainer-container {
+  padding: 60px 0px;
+  z-index: 10; 
+  position: relative;
+
+
+  .FloatingContainer-card {
+    background: #F5F8FE;
+    border-radius: 12px;
+    padding: 50px  50px;
+    width: initial;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .FloatingContainer-header {
+    text-align: left; /* Falls der Text standardmäßig zentriert ist */
+    h2{
+        font-size: 40px ;
+        width: 70%;
+        margin-top: 30px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: var(--e-global-color-text);
+        span {
+          color: var(--e-global-color-primary);
+        }
+    }
+    p{
+      width: 65%;
+      color: #6b7280;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+}
+
+
+}
+.FloatingContainer-content {
+  display: flex;
+  justify-content: space-between; /* Positionierung von Text und Bild */
+  align-items: center;
+
+  .image {
+      width: 50%; /* Reduzierte Breite des Bild-Containers */
+      display: flex;
+      justify-content: flex-end; /* Bild nach rechts verschieben */
+
+      img {
+          width: 125%; /* Reduzierte Bildgröße */
+          max-width: 125%; /* Bild soll sich nicht zu stark vergrößern */
+          height: auto; /* Verhindert Verzerrung des Bildes */
+          object-fit: contain;
+          border-radius: 8px;
+          margin-left: 0; /* Entfernt das negative Margin */
+      }
+  }
+}
+
+
+
+
+@media (max-width: 1200px) {
+
+
+  .FloatingContainer-card {
+      padding: 10px 40px ;
+      min-width: 100%;
+      box-sizing: border-box;
+      align-items: center !important; /* Zentriert den gesamten Inhalt */
+      text-align: center !important; /* Zentriert den Text */
+  }
+
+  .FloatingContainer-container {
+    padding: 50px 20px;
+    
+    
+}
+
+.FloatingContainer-content {
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+
+
+}
+.FloatingContainer-header {
+  text-align: center !important; /* Überschriften & Absätze mittig ausrichten */
+
+  h2 {
+    min-width: 100%;
+  }
+
+  p {
+    width: 100% !important; /* Vergrößert den Textbereich */
+    font-size: 16px !important;
+  }
+
+}
+.image{
+    img{
+    display: none;
+  }
+}
+}

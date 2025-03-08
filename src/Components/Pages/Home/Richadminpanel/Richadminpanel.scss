@@ -1,0 +1,236 @@
+.Richadminpanel-container {
+    padding: 60px 0px;
+  
+    .Richadminpanel-card {
+      background: #F5F8FE;
+      border-radius: 12px;
+      padding: 30px  66px;
+      width: initial;
+      height: 100%;
+      width: 70%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .Richadminpanel-content {
+        display: flex;
+        justify-content: space-between; /* Positionierung von Text und Bild */
+        align-items: center;
+      
+        .text {
+          flex: 2;
+          min-width: 50%;
+      
+          h2 {
+            font-size: 30px;
+          }
+      
+          p {
+            font-size: 16px;
+            font-weight: 400;
+            color: #64748b;
+            margin-top: 12px;
+            line-height: 1.6;
+            width: 60%;
+            display: block;
+            text-align: left;
+          }
+        }
+
+        .image {
+            width: 110%; /* Stellt sicher, dass der Container die gesamte Breite einnimmt */
+            
+            img {
+              width: 130%; /* Vergrößert das Bild über den Container hinaus */
+              max-width: 115%; /* Bild soll nie über die Container-Breite hinausgehen */
+              height: auto; /* Verhindert Verzerrung des Bildes */
+              object-fit: contain; /* Stellt sicher, dass das Bild im Container bleibt */
+              border-radius: 8px;
+              margin-left:-10%;
+            }
+          }
+    }
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    width: 79%;
+    margin: 0 auto 20px auto;
+
+    
+  
+    button {
+      flex: 1;
+      padding: 10px 20px;
+      border: none;
+      background: #F5F8FE;
+      color: black;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      justify-content: center;
+      line-height: 0;
+      transition: 0.3s;
+
+  
+      .button-content {
+        display: flex;
+        align-items: center;
+        
+        
+        font-size: 12px;
+        padding-right: 45px;
+      }
+      .button-text p { 
+        color: #64748b; // p bleibt schwarz
+
+        
+      }
+      svg {
+        margin-right: 20px;
+        font-size: 24px;
+      }
+  
+      .button-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+  
+      &:hover {
+        color: var(--e-global-color-primary);
+    
+        .button-text p {
+          color: #64748b; // p bleibt schwarz
+        }
+      }
+
+      &.active  {
+        background-color: var(--e-global-color-primary);
+        color: white;
+
+            
+        .button-text p {
+            color: white; // p bleibt schwarz
+          }
+      }
+      &:first-child {
+        border-radius: 12px 0px 0px 12px;
+      }
+  
+      &:last-child {
+        border-radius: 0px 12px 12px 0px;
+      }
+    }
+}
+
+@media (max-width: 1025px) {
+    .button-group {
+        display: flex;
+        flex-direction: column; /* Buttons untereinander */
+        align-items: center;
+        width: 100%; /* Verhindert zu große Breite */
+        box-sizing: border-box; /* Sorgt dafür, dass padding mitberechnet wird */
+        padding: 10px 0px ;
+        
+    }
+
+    .button-group button {
+        width: 100%;
+
+        justify-content: flex-start;
+        padding-left: 30px;
+
+        &:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+    }
+}
+
+@media (max-width: 1025px) {
+
+
+    .Richadminpanel-card {
+        padding: 10px 40px ;
+        min-width: 100%;
+        max-width: 160%;
+        
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        position: relative ;
+    }
+
+    .Richadminpanel-content {
+        .text {
+            flex: 2;
+            min-width: 50%;
+
+            h2 {
+                font-size: 22px !important;  
+
+            }
+
+            p {
+                font-size: 16px; 
+                font-weight: 400;
+                color: #64748b;
+                margin-top: 12px;
+                line-height: 1.6;
+                width: 60%;
+                display: block;
+                text-align: left;
+            }
+            
+        }
+    }
+    
+}
+
+@media (max-width: 768px) {
+  .Richadminpanel-content {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+
+      .text {
+        p{
+          width: 100% !important;
+        }
+      }
+      .image {
+          width: 100%;
+          display: flex;
+          justify-content: center; /* Zentriert das Bild */
+          margin: 0 auto; /* Stellt sicher, dass das Bild innerhalb des Containers bleibt */
+      }
+
+      .image img {
+          width: 105% !important; /* Verhindert, dass es zu breit wird */
+          max-width: 400px; /* Optionale Begrenzung der Bildgröße */
+          height: auto;
+          object-fit: contain;
+      }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .Richadminpanel-container {
+      padding: 50px 20px;
+  }
+
+
+  .image img {
+      display: block !important; /* Falls es unsichtbar ist */
+  }
+}

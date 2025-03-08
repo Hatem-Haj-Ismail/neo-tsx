@@ -1,0 +1,231 @@
+.footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 300px 20px 0px 0px;
+  font-family: Arial, sans-serif;
+  margin-top: -270px; 
+    position: relative;
+    z-index: 5;  /* Stellt sicher, dass der Footer hinter dem FAQ-Bereich bleibt */
+  
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Linke Seite */
+.footer__brand {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer__desc {
+  width: 70%;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.6;
+
+}
+
+.footer__logo img {
+  width: 150px; /* Passe die Breite an */
+  height: auto; /* Beibehaltung des Seitenverhältnisses */
+  max-width: 100%; /* Verhindert, dass das Bild größer als sein Container wird */
+}
+
+.footer__logo .cart-icon {
+  font-size: 24px;
+}
+.footer__links {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer__links h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer__links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__links li {
+  margin: 14px 0;
+  position: relative; /* Damit die Pseudo-Elemente (before/after) richtig funktionieren */
+}
+
+.footer__links li a {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 16px;
+  font-weight: var(--e-global-typography-accent-font-weight);
+  position: relative; /* Wichtig für das Vorhandensein der Pseudo-Elemente */
+}
+
+.footer__links li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.footer__links li a::after {
+  content: attr(data-replace);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  color: white;
+  opacity: 0; /* Standardmäßig unsichtbar */
+}
+
+.footer__links li a:hover {
+  color: white; /* Hover auf den Link */
+}
+
+.footer__links li a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.footer__links li a:hover::after {
+  transform: translate3d(0, 0, 0);
+  opacity: 1; /* Beim Hover sichtbar */
+}
+
+.footer__links li a:not(:hover)::before {
+  transform: scaleX(0);
+}
+
+.footer__links li a:not(:hover)::after {
+  transform: translate3d(200%, 0, 0);
+  opacity: 0;
+}
+/* Rechte Spalte: Kontakt */
+.footer__contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer__contact h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer__email {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 14px;
+}
+
+/* Social Media Icons */
+.footer__socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__socials a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: #222;
+  border-radius: 12px;
+  color: #ccc;
+  font-size: 18px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.footer__socials a:hover {
+  background: #555;
+  color: #fff;
+}
+
+/* Footer Bottom */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #6b7280;
+  max-width: 1200px; /* Begrenzung der Breite */
+  margin: 40px auto 0 auto; /* Automatisches Zentrieren */
+  width: 100%;
+  padding: 20px; /* Etwas Innenabstand für bessere Optik */
+}
+
+.footer__legal {
+  display: flex;
+  gap: 15px;
+}
+
+.footer__legal a {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer__legal a:hover {
+  color: #fff;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 20px; /* Fügt Abstand zur linken Wand hinzu */
+  }
+
+  .footer__brand,
+  .footer__links,
+  .footer__contact {
+    width: 100%;
+    text-align: left;
+    padding-left: 20px; /* Zusätzlicher Abstand für die Inhalte */
+  }
+
+  .footer__socials {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  .footer__logo img {
+    display: block !important; /* Erzwingt die Anzeige */
+    width: 120px; /* Kleinere Größe für kleinere Bildschirme */
+    margin: 10 auto; /* Zentriert das Logo */
+  }
+}

@@ -1,0 +1,109 @@
+body {
+  --e-global-color-primary: #165865;
+  --e-global-color-text: #181B1F; // SCSS-konforme Variable
+--e-global-color-light: #F5F8FE;
+--font-size-default: 14px;
+--keydesign-h2-font-size: 34px;
+font-family: 'Poppins', sans-serif;
+font-weight: 400;
+height: 100%;
+width: 100%; 
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+//Get Started
+.badge {
+  background: transparent;
+  color: var(--e-global-color-primary);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: var(--font-size-default);
+  display: inline-block;
+  margin-bottom: 8px;
+  border: 1px solid #E7E7E7;
+  font-weight: 450;
+
+}
+//obereschrift
+.header {
+  margin-bottom: 40px;
+  text-align: center;
+
+  h1,h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--e-global-color-text);
+    width: 60%;
+    margin: auto;
+
+
+    span {
+      color: var(--e-global-color-primary);
+      
+    }
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 18px;
+    line-height: 1.6;
+    width: 40%;
+    margin: auto;
+  }
+
+ 
+}
+@media (max-width: 768px) {
+
+  .header {
+
+    h1,h2 {
+      width: 100% ;
+      font-size: 35px !important;
+    }
+
+    p {
+        width: 98% !important;
+     }
+  }
+  }
+  .Button {
+    background-color: var(--e-global-color-primary);
+    color: white;
+    padding: 17px 27px;
+    border: none;
+    border-radius: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
+  
+    .buttonText {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .icon {
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    &:hover {
+      background-color: (var(--e-global-color-primary));
+    }
+  
+    &:hover .buttonText {
+      transform: translateX(10px);
+    }
+  
+    &:hover .icon {
+      transform: rotate(180deg);
+    }
+  }

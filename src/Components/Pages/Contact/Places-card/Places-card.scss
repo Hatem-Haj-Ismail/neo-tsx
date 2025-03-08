@@ -1,0 +1,55 @@
+.Placescard-container {
+    padding: 60px 0px;
+    z-index: 10; 
+    position: relative;
+  
+    .Placescard-card {
+        background: #F5F8FE;
+        border-radius: 12px;
+        padding: 130px 50px;
+        width: initial;
+        height: 140%;
+        width: 70%;
+        margin-top: 10px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+  
+    .Placescard-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .Placescard-location {
+      flex: 1;
+      text-align: center;
+  
+      strong {
+        font-size: 21px;
+        color: #111;
+        font-weight: 400;
+      }
+  
+      p {
+        font-size: 14px;
+        color: #7c878e;
+        margin-top: 5px;
+      }
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .Placescard-card {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    .Placescard-content {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  

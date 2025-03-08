@@ -1,0 +1,26 @@
+.Frequentlyaskedquestions-container {
+    background: #F5F8FE;
+    padding: 100px;
+    width: 100%;
+    height: 80%;
+    margin: 0 auto;
+    align-items: center; /* Zentriere den Inhalt vertikal */
+    text-align: center;
+    box-sizing: border-box; /* Padding in die Breite und Höhe des Containers einbeziehen */
+
+
+    .header {
+            a {
+                color: black; /* Link-Farbe auf Schwarz setzen */
+                text-decoration: none; /* Unterstreichung entfernen */
+                font-weight: bold; /* Optional: Link etwas hervorheben */
+                transition: 0.3s;
+                font-weight: 550;
+
+
+                &:hover {
+                    color: var(--e-global-color-primary);
+                }
+            }
+        }
+    }

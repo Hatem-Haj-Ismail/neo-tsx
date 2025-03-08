@@ -1,0 +1,114 @@
+.Varietyoffeatures-container {
+    padding: 60px 0;
+    text-align: center;
+  
+    .Varietyoffeatures-card {
+      background: #F5F8FE;
+      border-radius: 12px;
+      padding: 30px 66px;
+      width: 70%;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .button-container {
+        display: flex;
+        justify-content: center; // Zentriert den Button
+        padding: 50px;
+      }
+    .Varietyoffeatures-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); // 3 Karten pro Reihe
+      gap: 20px;
+      margin-top: 30px;
+
+    }
+  
+    .feature-box {
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 92%;
+        padding: 40px 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Fügt eine sanfte Übergangsanimation hinzu */
+      
+        p {
+          font-size: 16px;
+          text-align: center;
+          color: #6b7280;
+          line-height: 1.8;
+          width: 76%;
+          margin: -10px;
+        }
+      
+        h3 {
+          font-size: 21px;
+          font-weight: bold;
+          text-align: center;
+          transition: 0.3s;
+        }
+      
+        .feature-image {
+          width: 40px;
+          background-color: #F5F8FE; /* Heller Blauton als Hintergrund */
+          border-radius: 12px; /* Runde Form */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px; /* Innenabstand für das Bild */
+        }
+      }
+      
+      /* Hover-Effekt muss außerhalb der .feature-box-Regel sein */
+      .feature-box:hover {
+        transform: translateY(-10px); /* Verschiebt die Karte nach oben */
+
+        h3 {
+            color: var(--e-global-color-primary);
+          }
+      }
+  }
+
+@media (max-width: 1200px) {
+
+
+    .Varietyoffeatures-card {
+        padding: 10px 40px ;
+        min-width: 100%;
+        max-width: 160%;
+        
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        position: relative ;
+    }
+    .Varietyoffeatures-container {
+        padding: 50px 20px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .Varietyoffeatures-content {
+      display: flex !important; /* Verwende Flexbox unter 768px */
+      flex-direction: column !important; /* Elemente untereinander anordnen */
+      width: 100% !important;
+      align-items: center; /* Zentriert die Cards */
+    }
+  
+    .feature-box {
+      width: 110% !important; /* Maximale Breite 100% */
+      margin-bottom: 20px !important; /* Kleiner Abstand zwischen den Cards */
+      margin: 10 auto; /* Zentriert das Element */
+
+
+      p {
+        font-size: 18px !important;
+        width: 95% !important;
+      }
+    }
+  }

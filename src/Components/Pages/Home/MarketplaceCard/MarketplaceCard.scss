@@ -1,0 +1,241 @@
+.marketplace-container {
+  padding: 60px 60px;
+
+  .marketplace-card {
+    background: #F5F8FE;
+    border-radius: 12px;
+    padding: 100px;
+    width: initial;
+    height: 100%;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .Quickcommerce-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: auto;
+    gap: 20px; // Abstand zwischen den Containern
+  }
+  
+  .Quickcommerce-container {
+    width: 100%; // Jede Box nimmt 50% der Breite ein
+    padding: 30px 5px;
+
+  }
+  
+  .Quickcommerce-card {
+    background: #F5F8FE;
+    border-radius: 12px;
+    padding: 50px;
+    height: 77.7%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .quickcommerce-image {
+    max-width: 100%; /* Bild passt sich dem Container an */
+    height: auto;
+    object-fit: contain; /* Behält die gesamte Bilddarstellung bei */
+    display: block; /* Entfernt ungewollte Abstände */
+    margin: 0 auto; /* Falls das Bild mittig bleiben soll */
+  }
+  .Quickcommerce-text {
+    font-size: 22px;
+    position: relative;
+    top: -20px;
+    p {
+      font-size: 16px;
+      color: #64748b;
+      width: 95%;
+      text-align: center;
+      line-height: 1.6;
+      margin: 0 auto; /* Sorgt dafür, dass der p-Tag mittig ausgerichtet wird */
+      margin-top: -12px;
+    }
+    span{
+      color: var(--e-global-color-primary);
+    }
+  }
+  .marketplace-content {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 40%;
+
+    .text {
+      flex: 1.3;
+      min-width: 100%; // Verhindert zu kleine Breite
+    
+      p {
+        font-size: 16px; // Kleinere Schrift
+        font-weight: 400; // Normalgewicht (nicht fett)
+        color: #64748b;
+        margin-top: 12px;
+        line-height: 1.6;
+        width: 100%; // Damit der Text sich über die gesamte Breite erstreckt
+        display: block; // Verhindert Inline-Effekte
+        text-align: left; // Falls zentriert nicht gewünscht ist
+      }
+    }
+    
+
+
+
+
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    min-width: 120%;
+    margin-left: 100px;
+
+    .feature {
+      display: flex;
+      align-items: center;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      gap: 14px;
+      width: 100%;
+
+      .icon {
+        font-size: 20px;
+        color: var(--e-global-color-primary);
+        background-color: #F5F8FE;
+        padding: 10px 10px;
+        border-radius: 30%;
+        display: flex;
+
+
+      }
+
+      span {
+        font-size: 16px;
+        color: #1e293b;
+        font-weight: 500;
+      }
+    }
+
+  }
+  @media (max-width: 1025px) {
+
+
+    .marketplace-card {
+      padding: 55px 20px; /* Weniger Padding */
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box; /* Verhindert, dass Padding die Breite beeinflusst */
+      position: relative;
+    }
+
+    .features {
+      position: absolute;
+      right: 55px; /* Ganz rechts */
+      top: 50%; /* Falls vertikal zentriert sein soll */
+      transform: translateY(-50%); /* Falls vertikal zentriert */
+      min-width: auto; /* Verhindert Überbreite */
+      width: 45%; 
+
+    }
+
+          .features  .feature  span {
+        font-size: 15px; /* Kleinere Schriftgröße */
+      }
+
+
+      .Quickcommerce-container {
+        display: flex;
+        align-items: center; /* Hält Text und Bild vertikal zentriert */
+        justify-content: space-between; /* Hält Abstand gleichmäßig */
+        flex-wrap: wrap; /* Falls es zu eng wird, wrappt es um */
+        width: 100%;
+      }
+
+      .Quickcommerce-wrapper{
+        width: 100%;
+
+      }
+      .Quickcommerce-card {
+        flex: 1; /* Sorgt dafür, dass Text und Bild gleichmäßig Platz haben */
+        min-width: 45%; /* Verhindert, dass es zu klein wird */
+      }
+    
+      .quickcommerce-image {
+        flex: 1;
+        max-width: 100%; /* Bild bleibt IMMER in der Hälfte */
+        height: auto; /* Bild bleibt proportional */
+        position: relative;
+        top: 15px;
+      }
+    
+      .Quickcommerce-text {
+        flex: 1;
+        font-size: 18px; /* Verkleinert den Text leicht */
+      }
+  }
+  @media (max-width: 768px) {
+    .marketplace-card {
+      padding: 40px 20px; /* Weniger Padding */
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+
+
+    }
+  
+    .marketplace-content {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%; /* Stelle sicher, dass der Container sich nicht ausdehnt */
+
+      
+    }
+  
+
+  
+    .features {
+      margin-left: 55px;
+      padding: 0px clamp(0px, 5vw,15px) 0px 0px; /* Padding passt sich automatisch an */
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 95%;
+      box-sizing: border-box;
+      position: relative;
+      top: 140px;
+    }
+      .features  .feature  span {
+        font-size: 14px; /* Kleinere Schriftgröße */
+      }
+      .Quickcommerce-wrapper {
+        flex-direction: column; /* Stapelt die Container untereinander */
+        align-items: center; /* Zentriert die Boxen */
+        width: 100%;
+      }
+    
+      .Quickcommerce-container {
+        width: 100%; /* Stellt sicher, dass die Boxen nicht zu breit sind */
+        margin: 0 auto; /* Gleiche Abstände links und rechts */
+      }
+      .quickcommerce-image {
+
+        top: 50px;
+      }
+  }
+}
+
+@media (max-width: 1200px) {
+  .marketplace-container {
+    padding:  50px 20px;
+  }
+}
