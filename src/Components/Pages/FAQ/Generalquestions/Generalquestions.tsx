@@ -1,8 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./Generalquestions.scss";
-import { IoIosArrowForward, IoMdClose } from "react-icons/io";
+import { ArrowForward, Close } from "@mui/icons-material"; // Import von Material UI Icons
 
-const faqData = {
+// Typ für eine Frage
+interface Question {
+  question: string;
+  answer: string;
+}
+
+// Typ für eine Kategorie
+interface FaqCategory {
+  description: string;
+  questions: Question[];
+}
+
+// Typ für die Struktur der faqData
+interface FaqData {
+  [category: string]: FaqCategory;
+}
+
+// Beispiel-Daten für FAQ
+const faqData: FaqData = {
   "General questions": {
     description: "Discover the basics of Neo marketplace, including their importance for creating a unique marketplace, compatibility with the latest technologies, usage of the platform, and assistance for getting started.",
     questions: [
@@ -52,10 +70,9 @@ const faqData = {
   },
 };
 
-
-const Generalquestions = () => {
-  const [activeCategory, setActiveCategory] = useState("General questions");
-  const [openQuestions, setOpenQuestions] = useState({}); // Speichert geöffnete Fragen pro Kategorie
+const Generalquestions: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState<string>("General questions");
+  const [openQuestions, setOpenQuestions] = useState<{ [key: string]: number | null }>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,10 +95,10 @@ const Generalquestions = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeCategory]);
 
-  const toggleQuestion = (category, index) => {
+  const toggleQuestion = (category: string, index: number) => {
     setOpenQuestions((prev) => ({
       ...prev,
-      [category]: prev[category] === index ? null : index, // Fragen-Status pro Kategorie speichern
+      [category]: prev[category] === index ? null : index,
     }));
   };
 
@@ -95,7 +112,7 @@ const Generalquestions = () => {
             className={activeCategory === category ? "active" : ""}
             onClick={() => {
               setActiveCategory(category);
-              document.getElementById(category).scrollIntoView({ behavior: "smooth" });
+              document.getElementById(category)?.scrollIntoView({ behavior: "smooth" });
             }}
           >
             {category}
@@ -104,44 +121,39 @@ const Generalquestions = () => {
       </div>
 
       {/* FAQ Content */}
-{/* FAQ Content */}
-{/* FAQ Content */}
-<div className="faq-content">
-  {Object.entries(faqData).map(([category, data], index) => (
-    <div key={category} id={category}>
-      {/* Trennlinie nur über "License usage" und "Support & updates" */}
-      {(category === "License usage" || category === "Support & updates") && <hr className="faq-divider" />}
-      
-      <h2>{category}</h2>
-      <p>{data.description}</p>
-      
-      <div className="faq-list">
-      {data.questions.map((item, index) => (
-  <div
-    key={index}
-    className={`faq-item ${openQuestions[category] === index ? "open" : ""}`}
-    onClick={() => toggleQuestion(category, index)}
-  >
-    <div className="faq-question">
-      <span>{index + 1}. {item.question}</span>
-      <span className="close-icon">
-        {openQuestions[category] === index ? <IoMdClose /> : <IoIosArrowForward />}
-      </span>
-    </div>
-    {openQuestions[category] === index && (
-      <div className="faq-answer">
-        {item.answer}
+      <div className="faq-content">
+        {Object.entries(faqData).map(([category, data], index) => (
+          <div key={category} id={category}>
+            {/* Trennlinie nur über "License usage" und "Support & updates" */}
+            {(category === "License usage" || category === "Support & updates") && <hr className="faq-divider" />}
+            
+            <h2>{category}</h2>
+            <p>{data.description}</p>
+            
+            <div className="faq-list">
+              {data.questions.map((item, questionIndex) => (
+                <div
+                  key={questionIndex}
+                  className={`faq-item ${openQuestions[category] === questionIndex ? "open" : ""}`}
+                  onClick={() => toggleQuestion(category, questionIndex)}
+                >
+                  <div className="faq-question">
+                    <span>{questionIndex + 1}. {item.question}</span>
+                    <span className="close-icon">
+                      {openQuestions[category] === questionIndex ? <Close /> : <ArrowForward />}
+                    </span>
+                  </div>
+                  {openQuestions[category] === questionIndex && (
+                    <div className="faq-answer">
+                      {item.answer}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    )}
-  </div>
-))}
-
-      </div>
-    </div>
-  ))}
-</div>
-
-
     </div>
   );
 };

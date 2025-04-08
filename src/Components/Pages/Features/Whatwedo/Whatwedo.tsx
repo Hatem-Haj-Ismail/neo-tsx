@@ -5,15 +5,26 @@ import img3 from "../../../../img/3.webp";
 import img4 from "../../../../img/4.webp";
 import "./Whatwedo.scss";
 
-const contents = [
+// Typ für die Inhalte definieren
+interface Content {
+  id: number;
+  title: string;
+  text: string;
+  h2Title: string;
+  contentText: string;
+  imageUrl: string;
+}
+
+const contents: Content[] = [
   { id: 1, title: "Control Everything", text: "Rich Management tools", h2Title: "Control Everything", contentText: "Easily create, edit, and organize content for your marketplace.", imageUrl: img1 },
   { id: 2, title: "Multiple Services", text: "Build Super Apps", h2Title: "Build Super Apps", contentText: "Neo enables you to create and customize multiple services.", imageUrl: img2 },
   { id: 3, title: "Loyalty Program", text: "Points, Coupons, Referrals", h2Title: "Reward your customers", contentText: "Attract more customers with a points rewards system.", imageUrl: img3 },
   { id: 4, title: "Finance & Reports", text: "Detailed Reports", h2Title: "Financial Transparency", contentText: "The system includes an e-wallet for each party.", imageUrl: img4 },
 ];
 
-export const Whatwedo = () => {
-  const cardsRef = useRef([]);
+const Whatwedo: React.FC = () => {
+  // Ref-Array für alle Karten
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,8 +60,15 @@ export const Whatwedo = () => {
       </div>
 
       <div className="Whatwedo-list">
-        {contents.map((item, index) => (
-          <div key={item.id} className="Whatwedo-card" ref={(el) => (cardsRef.current[index] = el)}>
+        {contents.map((item) => (
+          <div
+            key={item.id}
+            className="Whatwedo-card"
+            ref={(el) => {
+              // We assign the ref to the cardsRef.current array
+              cardsRef.current[item.id - 1] = el;
+            }}
+          >
             <div className="Whatwedo-content">
               <div className="text">
                 <h6 className="Whatwedo-badge">{item.title}</h6>

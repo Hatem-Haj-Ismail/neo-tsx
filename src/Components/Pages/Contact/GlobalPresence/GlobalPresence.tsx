@@ -3,14 +3,24 @@ import { motion } from 'framer-motion';
 import "./GlobalPresence.scss";
 import worldMap from "../../../../img/contact-map.png"; // Bild einbinden
 
-const locations = [
+// Interface für die Location-Daten
+interface Location {
+  top: string;
+  left: string;
+  city: string;
+  phone: string;
+  flag: string;
+}
+
+const locations: Location[] = [
   { top: "39%", left: "57.5%", city: "Istanbul, Turkey", phone: "+90 531 626 66 95", flag: "🇹🇷" },
   { top: "48%", left: "56%", city: "Berlin, Germany", phone: "+49 30 12345678", flag: "🇩🇪" },
   { top: "52%", left: "62.5%", city: "Paris, France", phone: "+33 1 23456789", flag: "🇫🇷" },
 ];
 
-const GlobalPresence = () => {
-  const [hoveredLocation, setHoveredLocation] = useState(null);
+const GlobalPresence: React.FC = () => {
+  // State, um die angezeigte Location beim Hover zu speichern
+  const [hoveredLocation, setHoveredLocation] = useState<Location | null>(null);
 
   return (
     <div className="GlobalPresence-container">
@@ -28,6 +38,7 @@ const GlobalPresence = () => {
       <div className="GlobalPresence-map">
         <img src={worldMap} alt="World Map" />
 
+        {/* Anzeigen der Location-Markierungen */}
         {locations.map((location, index) => (
           <div
             key={index}
@@ -39,14 +50,14 @@ const GlobalPresence = () => {
             <div className="inner-circle"></div>
             <motion.div
               className="pulse-ring"
-              initial={{ scale: 1, opacity: 1
-               }}
+              initial={{ scale: 1, opacity: 1 }}
               animate={{ scale: 2, opacity: 0 }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
             />
           </div>
         ))}
 
+        {/* Info-Karte für die angeklickte Location */}
         {hoveredLocation && (
           <motion.div 
             className="info-card"

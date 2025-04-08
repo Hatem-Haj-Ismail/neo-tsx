@@ -7,13 +7,22 @@ import TestOrder from '../../../../img/1875660.png';
 import Detaileddocs from '../../../../img/9746449.png'; 
 import Preimiumsupport from '../../../../img/4961759.png'; 
 import { useNavigate } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
 
+// Material UI Icon
+import { ArrowForward } from '@mui/icons-material';
 
-const features = [
+// Definiere den Typ für das Feature-Objekt
+interface Feature {
+  title: string;
+  description: string;
+  img: string;
+}
+
+// Array von Features mit Typisierung
+const features: Feature[] = [
   {
     title: "Built to Scale",
-    description: "The system has been built to handle millions of users and orders without any slowdown or performance issues,vand it has already been tested with hundreds of thousands of users.",
+    description: "The system has been built to handle millions of users and orders without any slowdown or performance issues, and it has already been tested with hundreds of thousands of users.",
     img: Builttoscale
   },
   {
@@ -37,26 +46,25 @@ const features = [
     img: Detaileddocs
   },
   {
-    title: "Preimium support",
+    title: "Premium support",
     description: "Our support team offers a premium technical support experience with extremely fast response times, often within minutes, and provides swift assistance and solutions.",
     img: Preimiumsupport
   }
 ];
 
-const Varietyoffeatures = () => {
+const Varietyoffeatures: React.FC = () => {
   const navigate = useNavigate();
 
   return (
     <div className="Varietyoffeatures-container">
       <div className="Varietyoffeatures-card">
         <div className="header">
-          <span className="badge">Variety of features
-          </span>
+          <span className="badge">Variety of features</span>
           <h1>
-          Discover the Power of <span>Neo</span> 
+            Discover the Power of <span>Neo</span>
           </h1>
           <p>
-          Key features that set Neo apart and drive your marketplace  success.
+            Key features that set Neo apart and drive your marketplace success.
           </p>
         </div>
 
@@ -68,16 +76,15 @@ const Varietyoffeatures = () => {
               <p>{feature.description}</p>
             </div>
           ))}
-          <div></div>
-
         </div>
+
         <div className="button-container">
-        <button className="Button" onClick={() => navigate("/features")}>
-  <span className="buttonText">
-  Explore all features <BsArrowRight className="icon" />
-  </span>
-</button>
-</div>
+          <button className="Button" onClick={() => navigate("/features")}>
+            <span className="buttonText">
+              Explore all features <ArrowForward className="icon" />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

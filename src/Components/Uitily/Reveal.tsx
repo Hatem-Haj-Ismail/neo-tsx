@@ -1,7 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
 
-const Reveal = ({ children }) => {
+interface RevealProps {
+  children: ReactNode; // Typisierung für children
+}
+
+const Reveal: React.FC<RevealProps> = ({ children }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

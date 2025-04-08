@@ -8,9 +8,20 @@ import "./Testimonials.scss";
 import hasan from "../../../../img/hasan_saoud-300x300-1.jpg";
 import Jadid from "../../../../img/jadid.png";
 import Kerem from "../../../../img/kerem.png";
-import { RiStarSFill } from "react-icons/ri";
 
-const testimonialsData = [
+// Importiere Material UI Icons
+import { Star } from "@mui/icons-material";
+
+// Definiere den Typ für Testimonials
+interface Testimonial {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+  message: string;
+}
+
+const testimonialsData: Testimonial[] = [
   {
     id: 1,
     name: "Hasan Al-Soud",
@@ -37,14 +48,13 @@ const testimonialsData = [
   },
 ];
 
-const Testimonials = () => {
+const Testimonials: React.FC = () => {
   return (
     <div className="Testimonials-container">
       <div className="header">
         <span className="badge">Testimonials</span>
         <h2>
-          <span>Success Stories</span> That 
-          Highlight Our Impact
+          <span>Success Stories</span> That Highlight Our Impact
         </h2>
       </div>
 
@@ -66,11 +76,13 @@ const Testimonials = () => {
                   <h5>{testimonial.name}</h5>
                   <p className="position">{testimonial.position}</p>
 
-<div className="stars">
-  {[...Array(5)].map((_, index) => (
-    <RiStarSFill key={index} color="#ffcc00" size={20} />
-  ))}
-</div>
+                  {/* Material UI Stars */}
+                  <div className="stars">
+                    {[...Array(5)].map((_, index) => (
+                      <Star key={index} color="primary" fontSize="large" />
+                    ))}
+                  </div>
+
                   <p className="testimonial-message">{testimonial.message}</p>
                 </div>
               </div>

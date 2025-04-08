@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { ArrowUpward } from "@mui/icons-material"; // Importiere Material UI Icon
 import "./UpButton.scss";
-import { LiaAngleUpSolid } from "react-icons/lia";
 
-const UpButton = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+const UpButton: React.FC = () => {
+  const [scrollProgress, setScrollProgress] = useState<number>(0); // Typisierung für scrollProgress
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,9 +30,9 @@ const UpButton = () => {
       onClick={scrollToTop}
       style={{
         "--progress": `${scrollProgress}%`,
-      }}
+      } as React.CSSProperties} // CSSProperties-Typisierung für Style
     >
-      <LiaAngleUpSolid size={20} /> {/* Icon-Größe auf 20px reduziert */}
+      <ArrowUpward fontSize="inherit" /> {/* Material UI Icon */}
     </button>
   );
 };

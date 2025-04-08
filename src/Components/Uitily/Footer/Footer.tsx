@@ -1,8 +1,10 @@
 import React from "react";
 import "./Footer.scss";
-import { FaLinkedin, FaXTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
+import { LinkedIn, Twitter, Facebook, Instagram, YouTube } from "@mui/icons-material"; // Material UI Icons importieren
 import logo from "../../../img/png-ابيض-1.png";
-const Footer = () => {
+
+// Typisierung der Komponente
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
@@ -11,7 +13,9 @@ const Footer = () => {
           <div className="footer__logo">
             <img src={logo} alt="Neo Logo" />
           </div>
-          <p className="footer__desc">Neo empowers you to create a seamless and powerful marketplace.</p>
+          <p className="footer__desc">
+            Neo empowers you to create a seamless and powerful marketplace.
+          </p>
         </div>
 
         {/* Mittig: Quick Links */}
@@ -31,11 +35,21 @@ const Footer = () => {
           <h3>Get in touch</h3>
           <p className="footer__email">info@neocart.io</p>
           <div className="footer__socials">
-            <a href="#"><FaLinkedin /></a>
-            <a href="#"><FaXTwitter /></a>
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaYoutube /></a>
+            <a href="#" aria-label="LinkedIn">
+              <LinkedIn />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <Twitter />
+            </a>
+            <a href="#" aria-label="Facebook">
+              <Facebook />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <Instagram />
+            </a>
+            <a href="#" aria-label="YouTube">
+              <YouTube />
+            </a>
           </div>
         </div>
       </div>
